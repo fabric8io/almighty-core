@@ -1,9 +1,9 @@
 package application
 
 import (
-	"github.com/almighty/almighty-core/app"
-	"github.com/almighty/almighty-core/criteria"
-	"github.com/almighty/almighty-core/workitem"
+	"github.com/fabric8io/almighty-core/app"
+	"github.com/fabric8io/almighty-core/criteria"
+	"github.com/fabric8io/almighty-core/workitem"
 
 	"context"
 	uuid "github.com/satori/go.uuid"

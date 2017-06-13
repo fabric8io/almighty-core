@@ -3,7 +3,7 @@ package remoteworkitem
 import (
 	"encoding/json"
 
-	"github.com/almighty/almighty-core/log"
+	"github.com/fabric8io/almighty-core/log"
 
 	"github.com/google/go-github/github"
 	"golang.org/x/oauth2"

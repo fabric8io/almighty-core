@@ -11,10 +11,10 @@ import (
 	"strings"
 	"time"
 
-	"github.com/almighty/almighty-core/errors"
-	"github.com/almighty/almighty-core/log"
-	"github.com/almighty/almighty-core/rest"
 	"github.com/dgrijalva/jwt-go"
+	"github.com/fabric8io/almighty-core/errors"
+	"github.com/fabric8io/almighty-core/log"
+	"github.com/fabric8io/almighty-core/rest"
 )
 
 const (

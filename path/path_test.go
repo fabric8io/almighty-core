@@ -6,8 +6,8 @@ import (
 
 	"fmt"
 
-	"github.com/almighty/almighty-core/path"
-	"github.com/almighty/almighty-core/resource"
+	"github.com/fabric8io/almighty-core/path"
+	"github.com/fabric8io/almighty-core/resource"
 	uuid "github.com/satori/go.uuid"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"

@@ -4,7 +4,7 @@ import (
 	"strconv"
 	"time"
 
-	"github.com/almighty/almighty-core/gormsupport"
+	"github.com/fabric8io/almighty-core/gormsupport"
 	uuid "github.com/satori/go.uuid"
 )
 

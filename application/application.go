@@ -1,16 +1,16 @@
 package application
 
 import (
-	"github.com/almighty/almighty-core/account"
-	"github.com/almighty/almighty-core/area"
-	"github.com/almighty/almighty-core/auth"
-	"github.com/almighty/almighty-core/codebase"
+	"github.com/fabric8io/almighty-core/account"
+	"github.com/fabric8io/almighty-core/area"
+	"github.com/fabric8io/almighty-core/auth"
+	"github.com/fabric8io/almighty-core/codebase"
 
-	"github.com/almighty/almighty-core/comment"
-	"github.com/almighty/almighty-core/iteration"
-	"github.com/almighty/almighty-core/space"
-	"github.com/almighty/almighty-core/workitem"
-	"github.com/almighty/almighty-core/workitem/link"
+	"github.com/fabric8io/almighty-core/comment"
+	"github.com/fabric8io/almighty-core/iteration"
+	"github.com/fabric8io/almighty-core/space"
+	"github.com/fabric8io/almighty-core/workitem"
+	"github.com/fabric8io/almighty-core/workitem/link"
 )
 
 //An Application stands for a particular implementation of the business logic of our application

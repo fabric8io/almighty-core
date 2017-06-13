@@ -3,9 +3,9 @@ package test
 import (
 	"context"
 
-	"github.com/almighty/almighty-core/account"
-	"github.com/almighty/almighty-core/log"
-	"github.com/almighty/almighty-core/models"
+	"github.com/fabric8io/almighty-core/account"
+	"github.com/fabric8io/almighty-core/log"
+	"github.com/fabric8io/almighty-core/models"
 
 	"github.com/jinzhu/gorm"
 	uuid "github.com/satori/go.uuid"

@@ -3,10 +3,10 @@ package controller
 import (
 	"testing"
 
-	"github.com/almighty/almighty-core/app"
-	"github.com/almighty/almighty-core/iteration"
-	"github.com/almighty/almighty-core/resource"
-	"github.com/almighty/almighty-core/workitem"
+	"github.com/fabric8io/almighty-core/app"
+	"github.com/fabric8io/almighty-core/iteration"
+	"github.com/fabric8io/almighty-core/resource"
+	"github.com/fabric8io/almighty-core/workitem"
 	uuid "github.com/satori/go.uuid"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"

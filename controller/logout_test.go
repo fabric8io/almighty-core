@@ -3,12 +3,12 @@ package controller
 import (
 	"testing"
 
-	"github.com/almighty/almighty-core/app/test"
-	config "github.com/almighty/almighty-core/configuration"
-	"github.com/almighty/almighty-core/login"
-	"github.com/almighty/almighty-core/resource"
-	testsupport "github.com/almighty/almighty-core/test"
-	almtoken "github.com/almighty/almighty-core/token"
+	"github.com/fabric8io/almighty-core/app/test"
+	config "github.com/fabric8io/almighty-core/configuration"
+	"github.com/fabric8io/almighty-core/login"
+	"github.com/fabric8io/almighty-core/resource"
+	testsupport "github.com/fabric8io/almighty-core/test"
+	almtoken "github.com/fabric8io/almighty-core/token"
 
 	"github.com/goadesign/goa"
 	"github.com/stretchr/testify/assert"

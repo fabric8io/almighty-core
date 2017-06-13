@@ -5,9 +5,9 @@ import (
 
 	"context"
 
-	"github.com/almighty/almighty-core/errors"
-	"github.com/almighty/almighty-core/log"
-	"github.com/almighty/almighty-core/path"
+	"github.com/fabric8io/almighty-core/errors"
+	"github.com/fabric8io/almighty-core/log"
+	"github.com/fabric8io/almighty-core/path"
 
 	"github.com/jinzhu/gorm"
 	errs "github.com/pkg/errors"

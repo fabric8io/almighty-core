@@ -4,9 +4,9 @@ import (
 	"net/http"
 	"strconv"
 
-	"github.com/almighty/almighty-core/app"
-	"github.com/almighty/almighty-core/errors"
-	"github.com/almighty/almighty-core/log"
+	"github.com/fabric8io/almighty-core/app"
+	"github.com/fabric8io/almighty-core/errors"
+	"github.com/fabric8io/almighty-core/log"
 
 	"github.com/goadesign/goa"
 	errs "github.com/pkg/errors"

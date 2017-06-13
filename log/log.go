@@ -6,13 +6,13 @@ import (
 	"runtime"
 	"strings"
 
-	"github.com/almighty/almighty-core/configuration"
+	"github.com/fabric8io/almighty-core/configuration"
 
 	"context"
 	log "github.com/Sirupsen/logrus"
 )
 
-const defaultPackageName = "github.com/almighty/almighty-core/"
+const defaultPackageName = "github.com/fabric8io/almighty-core/"
 
 var (
 	logger = &log.Logger{

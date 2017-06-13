@@ -3,7 +3,7 @@ package workitem
 import (
 	"time"
 
-	"github.com/almighty/almighty-core/log"
+	"github.com/fabric8io/almighty-core/log"
 
 	uuid "github.com/satori/go.uuid"
 )

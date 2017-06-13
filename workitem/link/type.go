@@ -3,9 +3,9 @@ package link
 import (
 	"time"
 
-	convert "github.com/almighty/almighty-core/convert"
-	"github.com/almighty/almighty-core/errors"
-	"github.com/almighty/almighty-core/gormsupport"
+	convert "github.com/fabric8io/almighty-core/convert"
+	"github.com/fabric8io/almighty-core/errors"
+	"github.com/fabric8io/almighty-core/gormsupport"
 
 	errs "github.com/pkg/errors"
 	uuid "github.com/satori/go.uuid"

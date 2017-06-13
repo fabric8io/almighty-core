@@ -6,7 +6,7 @@ import (
 	"io"
 	"strings"
 
-	"github.com/almighty/almighty-core/errors"
+	"github.com/fabric8io/almighty-core/errors"
 
 	"github.com/goadesign/goa"
 )

@@ -9,17 +9,17 @@ import (
 	"net/http"
 	"net/url"
 
-	"github.com/almighty/almighty-core/account"
-	"github.com/almighty/almighty-core/auth"
-	"github.com/almighty/almighty-core/rest"
+	"github.com/fabric8io/almighty-core/account"
+	"github.com/fabric8io/almighty-core/auth"
+	"github.com/fabric8io/almighty-core/rest"
 
-	"github.com/almighty/almighty-core/app"
-	"github.com/almighty/almighty-core/errors"
-	"github.com/almighty/almighty-core/jsonapi"
-	"github.com/almighty/almighty-core/log"
-	"github.com/almighty/almighty-core/login"
-	"github.com/almighty/almighty-core/test"
-	"github.com/almighty/almighty-core/token"
+	"github.com/fabric8io/almighty-core/app"
+	"github.com/fabric8io/almighty-core/errors"
+	"github.com/fabric8io/almighty-core/jsonapi"
+	"github.com/fabric8io/almighty-core/log"
+	"github.com/fabric8io/almighty-core/login"
+	"github.com/fabric8io/almighty-core/test"
+	"github.com/fabric8io/almighty-core/token"
 	"github.com/goadesign/goa"
 )
 

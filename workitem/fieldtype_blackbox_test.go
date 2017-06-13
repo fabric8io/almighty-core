@@ -5,9 +5,9 @@ import (
 
 	"reflect"
 
-	"github.com/almighty/almighty-core/rendering"
-	"github.com/almighty/almighty-core/resource"
-	. "github.com/almighty/almighty-core/workitem"
+	"github.com/fabric8io/almighty-core/rendering"
+	"github.com/fabric8io/almighty-core/resource"
+	. "github.com/fabric8io/almighty-core/workitem"
 )
 
 var (

@@ -4,11 +4,11 @@ import (
 	"context"
 	"fmt"
 
-	"github.com/almighty/almighty-core/account"
-	"github.com/almighty/almighty-core/app"
-	"github.com/almighty/almighty-core/application"
-	"github.com/almighty/almighty-core/jsonapi"
-	"github.com/almighty/almighty-core/log"
+	"github.com/fabric8io/almighty-core/account"
+	"github.com/fabric8io/almighty-core/app"
+	"github.com/fabric8io/almighty-core/application"
+	"github.com/fabric8io/almighty-core/jsonapi"
+	"github.com/fabric8io/almighty-core/log"
 	"github.com/goadesign/goa"
 )
 

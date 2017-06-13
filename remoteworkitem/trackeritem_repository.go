@@ -5,10 +5,10 @@ import (
 
 	"context"
 
-	"github.com/almighty/almighty-core/account"
-	"github.com/almighty/almighty-core/criteria"
-	"github.com/almighty/almighty-core/log"
-	"github.com/almighty/almighty-core/workitem"
+	"github.com/fabric8io/almighty-core/account"
+	"github.com/fabric8io/almighty-core/criteria"
+	"github.com/fabric8io/almighty-core/log"
+	"github.com/fabric8io/almighty-core/workitem"
 
 	"github.com/jinzhu/gorm"
 	"github.com/pkg/errors"

@@ -7,9 +7,9 @@ import (
 	"time"
 
 	"context"
-	"github.com/almighty/almighty-core/errors"
-	"github.com/almighty/almighty-core/gormsupport"
-	"github.com/almighty/almighty-core/log"
+	"github.com/fabric8io/almighty-core/errors"
+	"github.com/fabric8io/almighty-core/gormsupport"
+	"github.com/fabric8io/almighty-core/log"
 	"github.com/goadesign/goa"
 	"github.com/jinzhu/gorm"
 	errs "github.com/pkg/errors"

@@ -12,9 +12,9 @@ import (
 
 	"net/url"
 
-	"github.com/almighty/almighty-core/errors"
-	"github.com/almighty/almighty-core/log"
-	"github.com/almighty/almighty-core/workitem"
+	"github.com/fabric8io/almighty-core/errors"
+	"github.com/fabric8io/almighty-core/log"
+	"github.com/fabric8io/almighty-core/workitem"
 
 	"github.com/asaskevich/govalidator"
 	"github.com/jinzhu/gorm"
