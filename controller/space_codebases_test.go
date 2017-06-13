@@ -8,18 +8,18 @@ import (
 
 	"context"
 
-	"github.com/almighty/almighty-core/app"
-	"github.com/almighty/almighty-core/app/test"
-	"github.com/almighty/almighty-core/application"
-	. "github.com/almighty/almighty-core/controller"
-	"github.com/almighty/almighty-core/gormapplication"
-	"github.com/almighty/almighty-core/gormsupport/cleaner"
-	"github.com/almighty/almighty-core/gormtestsupport"
+	"github.com/fabric8io/almighty-core/app"
+	"github.com/fabric8io/almighty-core/app/test"
+	"github.com/fabric8io/almighty-core/application"
+	. "github.com/fabric8io/almighty-core/controller"
+	"github.com/fabric8io/almighty-core/gormapplication"
+	"github.com/fabric8io/almighty-core/gormsupport/cleaner"
+	"github.com/fabric8io/almighty-core/gormtestsupport"
 
-	"github.com/almighty/almighty-core/resource"
-	"github.com/almighty/almighty-core/space"
-	testsupport "github.com/almighty/almighty-core/test"
-	almtoken "github.com/almighty/almighty-core/token"
+	"github.com/fabric8io/almighty-core/resource"
+	"github.com/fabric8io/almighty-core/space"
+	testsupport "github.com/fabric8io/almighty-core/test"
+	almtoken "github.com/fabric8io/almighty-core/token"
 	"github.com/goadesign/goa"
 	uuid "github.com/satori/go.uuid"
 	"github.com/stretchr/testify/assert"
@@ -69,7 +69,7 @@ func (rest *TestSpaceCodebaseREST) TestSuccessCreateCodebase() {
 
 	resource.Require(t, resource.Database)
 
-	repo := "https://github.com/almighty/almighty-core.git"
+	repo := "https://github.com/fabric8io/almighty-core.git"
 
 	var p *space.Space
 	ci := createSpaceCodebase(repo)
@@ -117,7 +117,7 @@ func (rest *TestSpaceCodebaseREST) TestListCodebase() {
 		return nil
 	})
 
-	repo := "https://github.com/almighty/almighty-core.git"
+	repo := "https://github.com/fabric8io/almighty-core.git"
 
 	svc, ctrl := rest.SecuredController()
 	spaceId := s.ID

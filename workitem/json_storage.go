@@ -5,7 +5,7 @@ import (
 	"encoding/json"
 	"reflect"
 
-	"github.com/almighty/almighty-core/convert"
+	"github.com/fabric8io/almighty-core/convert"
 	"github.com/pkg/errors"
 )
 

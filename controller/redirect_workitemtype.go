@@ -3,8 +3,8 @@ package controller
 import (
 	"strings"
 
-	"github.com/almighty/almighty-core/app"
-	"github.com/almighty/almighty-core/space"
+	"github.com/fabric8io/almighty-core/app"
+	"github.com/fabric8io/almighty-core/space"
 	"github.com/goadesign/goa"
 )
 

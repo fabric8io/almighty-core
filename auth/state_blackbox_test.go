@@ -3,11 +3,11 @@ package auth_test
 import (
 	"testing"
 
-	"github.com/almighty/almighty-core/auth"
-	"github.com/almighty/almighty-core/errors"
-	"github.com/almighty/almighty-core/gormsupport/cleaner"
-	"github.com/almighty/almighty-core/gormtestsupport"
-	"github.com/almighty/almighty-core/migration"
+	"github.com/fabric8io/almighty-core/auth"
+	"github.com/fabric8io/almighty-core/errors"
+	"github.com/fabric8io/almighty-core/gormsupport/cleaner"
+	"github.com/fabric8io/almighty-core/gormtestsupport"
+	"github.com/fabric8io/almighty-core/migration"
 
 	"context"
 	"github.com/satori/go.uuid"

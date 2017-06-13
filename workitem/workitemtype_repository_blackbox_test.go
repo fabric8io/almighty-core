@@ -5,11 +5,11 @@ import (
 	"net/url"
 	"testing"
 
-	"github.com/almighty/almighty-core/gormsupport/cleaner"
-	"github.com/almighty/almighty-core/gormtestsupport"
-	"github.com/almighty/almighty-core/migration"
-	"github.com/almighty/almighty-core/space"
-	"github.com/almighty/almighty-core/workitem"
+	"github.com/fabric8io/almighty-core/gormsupport/cleaner"
+	"github.com/fabric8io/almighty-core/gormtestsupport"
+	"github.com/fabric8io/almighty-core/migration"
+	"github.com/fabric8io/almighty-core/space"
+	"github.com/fabric8io/almighty-core/workitem"
 
 	"context"
 	"github.com/goadesign/goa"

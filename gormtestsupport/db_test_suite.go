@@ -3,12 +3,12 @@ package gormtestsupport
 import (
 	"os"
 
-	config "github.com/almighty/almighty-core/configuration"
-	"github.com/almighty/almighty-core/log"
-	"github.com/almighty/almighty-core/migration"
-	"github.com/almighty/almighty-core/models"
-	"github.com/almighty/almighty-core/resource"
-	"github.com/almighty/almighty-core/workitem"
+	config "github.com/fabric8io/almighty-core/configuration"
+	"github.com/fabric8io/almighty-core/log"
+	"github.com/fabric8io/almighty-core/migration"
+	"github.com/fabric8io/almighty-core/models"
+	"github.com/fabric8io/almighty-core/resource"
+	"github.com/fabric8io/almighty-core/workitem"
 
 	"context"
 	"github.com/jinzhu/gorm"

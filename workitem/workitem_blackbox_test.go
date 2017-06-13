@@ -4,11 +4,11 @@ import (
 	"testing"
 	"time"
 
-	"github.com/almighty/almighty-core/convert"
-	"github.com/almighty/almighty-core/gormsupport"
-	"github.com/almighty/almighty-core/resource"
-	"github.com/almighty/almighty-core/space"
-	"github.com/almighty/almighty-core/workitem"
+	"github.com/fabric8io/almighty-core/convert"
+	"github.com/fabric8io/almighty-core/gormsupport"
+	"github.com/fabric8io/almighty-core/resource"
+	"github.com/fabric8io/almighty-core/space"
+	"github.com/fabric8io/almighty-core/workitem"
 
 	uuid "github.com/satori/go.uuid"
 	"github.com/stretchr/testify/assert"

@@ -5,7 +5,7 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/almighty/almighty-core/criteria"
+	"github.com/fabric8io/almighty-core/criteria"
 	uuid "github.com/satori/go.uuid"
 )
 

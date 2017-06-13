@@ -1,6 +1,6 @@
 package remoteworkitem
 
-import "github.com/almighty/almighty-core/gormsupport"
+import "github.com/fabric8io/almighty-core/gormsupport"
 
 // Tracker represents tracker configuration
 type Tracker struct {

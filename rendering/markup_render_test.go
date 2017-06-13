@@ -4,7 +4,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/almighty/almighty-core/rendering"
+	"github.com/fabric8io/almighty-core/rendering"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 )

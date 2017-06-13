@@ -3,12 +3,12 @@ package remoteworkitem_test
 import (
 	"testing"
 
-	"github.com/almighty/almighty-core/application"
-	"github.com/almighty/almighty-core/gormsupport/cleaner"
-	"github.com/almighty/almighty-core/gormtestsupport"
-	"github.com/almighty/almighty-core/migration"
-	"github.com/almighty/almighty-core/remoteworkitem"
-	"github.com/almighty/almighty-core/space"
+	"github.com/fabric8io/almighty-core/application"
+	"github.com/fabric8io/almighty-core/gormsupport/cleaner"
+	"github.com/fabric8io/almighty-core/gormtestsupport"
+	"github.com/fabric8io/almighty-core/migration"
+	"github.com/fabric8io/almighty-core/remoteworkitem"
+	"github.com/fabric8io/almighty-core/space"
 
 	"context"
 	"github.com/stretchr/testify/require"

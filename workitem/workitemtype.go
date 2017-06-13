@@ -5,8 +5,8 @@ import (
 	"strings"
 	"time"
 
-	"github.com/almighty/almighty-core/convert"
-	"github.com/almighty/almighty-core/gormsupport"
+	"github.com/fabric8io/almighty-core/convert"
+	"github.com/fabric8io/almighty-core/gormsupport"
 
 	"github.com/pkg/errors"
 	uuid "github.com/satori/go.uuid"

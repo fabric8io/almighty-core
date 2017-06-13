@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"testing"
 
-	"github.com/almighty/almighty-core/errors"
-	"github.com/almighty/almighty-core/resource"
+	"github.com/fabric8io/almighty-core/errors"
+	"github.com/fabric8io/almighty-core/resource"
 	"github.com/stretchr/testify/assert"
 )
 

@@ -3,13 +3,13 @@ package controller
 import (
 	"context"
 
-	"github.com/almighty/almighty-core/app"
-	"github.com/almighty/almighty-core/application"
-	"github.com/almighty/almighty-core/criteria"
-	"github.com/almighty/almighty-core/errors"
-	"github.com/almighty/almighty-core/jsonapi"
-	query "github.com/almighty/almighty-core/query/simple"
-	"github.com/almighty/almighty-core/workitem"
+	"github.com/fabric8io/almighty-core/app"
+	"github.com/fabric8io/almighty-core/application"
+	"github.com/fabric8io/almighty-core/criteria"
+	"github.com/fabric8io/almighty-core/errors"
+	"github.com/fabric8io/almighty-core/jsonapi"
+	query "github.com/fabric8io/almighty-core/query/simple"
+	"github.com/fabric8io/almighty-core/workitem"
 
 	"github.com/goadesign/goa"
 	errs "github.com/pkg/errors"

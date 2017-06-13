@@ -6,21 +6,21 @@ import (
 	"net/http"
 	"testing"
 
-	"github.com/almighty/almighty-core/app"
-	"github.com/almighty/almighty-core/app/test"
-	. "github.com/almighty/almighty-core/controller"
-	"github.com/almighty/almighty-core/gormapplication"
-	"github.com/almighty/almighty-core/gormsupport/cleaner"
-	"github.com/almighty/almighty-core/gormtestsupport"
-	"github.com/almighty/almighty-core/jsonapi"
-	"github.com/almighty/almighty-core/remoteworkitem"
-	"github.com/almighty/almighty-core/resource"
-	almrest "github.com/almighty/almighty-core/rest"
-	"github.com/almighty/almighty-core/space"
+	"github.com/fabric8io/almighty-core/app"
+	"github.com/fabric8io/almighty-core/app/test"
+	. "github.com/fabric8io/almighty-core/controller"
+	"github.com/fabric8io/almighty-core/gormapplication"
+	"github.com/fabric8io/almighty-core/gormsupport/cleaner"
+	"github.com/fabric8io/almighty-core/gormtestsupport"
+	"github.com/fabric8io/almighty-core/jsonapi"
+	"github.com/fabric8io/almighty-core/remoteworkitem"
+	"github.com/fabric8io/almighty-core/resource"
+	almrest "github.com/fabric8io/almighty-core/rest"
+	"github.com/fabric8io/almighty-core/space"
 	jwt "github.com/dgrijalva/jwt-go"
 
-	testsupport "github.com/almighty/almighty-core/test"
-	almtoken "github.com/almighty/almighty-core/token"
+	testsupport "github.com/fabric8io/almighty-core/test"
+	almtoken "github.com/fabric8io/almighty-core/token"
 	"github.com/stretchr/testify/require"
 	"github.com/stretchr/testify/suite"
 
@@ -311,7 +311,7 @@ func (rest *TestTrackerQueryREST) TestTrackerQueryListItemsNotNil() {
 }
 
 // This test ensures that ID returned by Show is valid.
-// refer : https://github.com/almighty/almighty-core/issues/189
+// refer : https://github.com/fabric8io/almighty-core/issues/189
 func (rest *TestTrackerQueryREST) TestCreateTrackerQueryValidId() {
 	t := rest.T()
 	resource.Require(t, resource.Database)
