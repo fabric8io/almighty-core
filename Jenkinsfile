@@ -3,11 +3,20 @@
 def dummy
 goTemplate{
   dockerNode{
-    goRelease{
-      githubOrganisation = 'fabric8io'
-      dockerOrganisation = 'fabric8'
-      project = 'almighty-core'
-      dockerBuildOptions = '--file Dockerfile.deploy'
+    if (env.BRANCH_NAME.startsWith('PR-')) {
+      goCI{
+        githubOrganisation = 'fabric8io'
+        dockerOrganisation = 'fabric8'
+        project = 'almighty-core'
+        dockerBuildOptions = '--file Dockerfile.deploy'
+      }
+    } else if (env.BRANCH_NAME.equals('master')) {
+      goRelease{
+        githubOrganisation = 'fabric8io'
+        dockerOrganisation = 'fabric8'
+        project = 'almighty-core'
+        dockerBuildOptions = '--file Dockerfile.deploy'
+      }
     }
   }
 }
