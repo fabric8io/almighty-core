@@ -15,11 +15,11 @@ import (
 	"regexp"
 	"strconv"
 
+	jwt "github.com/dgrijalva/jwt-go"
 	errs "github.com/pkg/errors"
 
 	"context"
 
-	jwt "github.com/dgrijalva/jwt-go"
 	"github.com/fabric8io/almighty-core/account"
 	"github.com/fabric8io/almighty-core/app"
 	"github.com/fabric8io/almighty-core/application"
