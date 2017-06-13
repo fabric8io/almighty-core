@@ -2,6 +2,7 @@ package login
 
 import (
 	"bytes"
+	"crypto/tls"
 	"encoding/json"
 	"fmt"
 	"net/http"
@@ -70,8 +71,19 @@ type KeycloakUserProfileClient struct {
 
 // NewKeycloakUserProfileClient creates a new KeycloakUserProfileClient
 func NewKeycloakUserProfileClient() *KeycloakUserProfileClient {
+	var tr *http.Transport
+
+	tr = &http.Transport{
+		TLSClientConfig: &tls.Config{InsecureSkipVerify: true},
+	}
+	var client *http.Client
+	if tr != nil {
+		client = &http.Client{Transport: tr}
+	} else {
+		client = http.DefaultClient
+	}
 	return &KeycloakUserProfileClient{
-		client: http.DefaultClient,
+		client: client,
 	}
 }
 

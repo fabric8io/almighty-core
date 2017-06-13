@@ -3,6 +3,7 @@ package auth
 import (
 	"bytes"
 	"context"
+	"crypto/tls"
 	"encoding/json"
 	"fmt"
 	"io"
@@ -661,7 +662,19 @@ func GetEntitlement(ctx context.Context, entitlementEndpoint string, entitlement
 	}
 
 	req.Header.Add("Authorization", "Bearer "+userAccesToken)
-	res, err := http.DefaultClient.Do(req)
+
+	// JR add config to disable
+	tr := &http.Transport{
+		TLSClientConfig: &tls.Config{InsecureSkipVerify: true},
+	}
+	var client *http.Client
+	if tr != nil {
+		client = &http.Client{Transport: tr}
+	} else {
+		client = http.DefaultClient
+	}
+	res, err := client.Do(req)
+
 	if err != nil {
 		log.Error(ctx, map[string]interface{}{
 			"entitlement_resource": entitlementResource,
@@ -765,7 +778,18 @@ func ValidateKeycloakUser(ctx context.Context, adminEndpoint string, userID, pro
 
 // GetProtectedAPIToken obtains a Protected API Token (PAT) from Keycloak
 func GetProtectedAPIToken(openidConnectTokenURL string, clientID string, clientSecret string) (string, error) {
-	client := &http.Client{Timeout: 10 * time.Second}
+	var tr *http.Transport
+
+	tr = &http.Transport{
+		TLSClientConfig: &tls.Config{InsecureSkipVerify: true},
+	}
+	var client *http.Client
+	if tr != nil {
+		client = &http.Client{Timeout: 10 * time.Second, Transport: tr}
+	} else {
+		client = http.DefaultClient
+	}
+
 	res, err := client.PostForm(openidConnectTokenURL, url.Values{
 		"client_id":     {clientID},
 		"client_secret": {clientSecret},

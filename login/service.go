@@ -4,6 +4,7 @@ import (
 	"crypto/md5"
 	"crypto/rsa"
 	"crypto/sha256"
+	"crypto/tls"
 	"encoding/base64"
 	"encoding/hex"
 	"encoding/json"
@@ -122,7 +123,21 @@ func (keycloak *KeycloakOAuthProvider) Perform(ctx *app.AuthorizeLoginContext, c
 			"known_referrer": knownReferrer,
 		}, "referrer found")
 
-		keycloakToken, err := config.Exchange(ctx, code)
+		tr := &http.Transport{
+			TLSClientConfig: &tls.Config{InsecureSkipVerify: true},
+		}
+
+		// JR hack
+
+		// sslcli := &http.Client{Transport: tr}
+		// ctx.Context = context.WithValue(ctx, oauth2.HTTPClient, sslcli)
+		// keycloakToken, err := config.Exchange(ctx, code)
+
+		sslcli := &http.Client{Transport: tr}
+		ctx2 := context.TODO()
+		ctx2 = context.WithValue(ctx2, oauth2.HTTPClient, sslcli)
+		keycloakToken, err := config.Exchange(ctx2, code)
+
 		if err != nil {
 			log.Error(ctx, map[string]interface{}{
 				"code": code,
@@ -137,7 +152,7 @@ func (keycloak *KeycloakOAuthProvider) Perform(ctx *app.AuthorizeLoginContext, c
 			"known_referrer": knownReferrer,
 		}, "exchanged code to access token")
 
-		_, usr, err := keycloak.CreateOrUpdateKeycloakUser(keycloakToken.AccessToken, ctx, profileEndpoint)
+		_, usr, err := keycloak.CreateOrUpdateKeycloakUser(keycloakToken.AccessToken, ctx2, profileEndpoint)
 		if err != nil {
 			log.Error(ctx, map[string]interface{}{
 				"err": err,
@@ -175,7 +190,7 @@ func (keycloak *KeycloakOAuthProvider) Perform(ctx *app.AuthorizeLoginContext, c
 			return redirectWithError(ctx, knownReferrer, err.Error())
 		}
 
-		err = encodeToken(ctx, referrerURL, keycloakToken)
+		err = encodeToken(ctx2, referrerURL, keycloakToken)
 		if err != nil {
 			log.Error(ctx, map[string]interface{}{
 				"err": err,
@@ -194,7 +209,7 @@ func (keycloak *KeycloakOAuthProvider) Perform(ctx *app.AuthorizeLoginContext, c
 		// Check if federated identities are not likned yet
 		// TODO we probably won't want to check it for the existing users.
 		// But we need it for now because old users still may not be linked.
-		linked, err := keycloak.checkAllFederatedIdentities(ctx, keycloakToken.AccessToken, brokerEndpoint)
+		linked, err := keycloak.checkAllFederatedIdentities(ctx2, keycloakToken.AccessToken, brokerEndpoint)
 		if err != nil {
 			log.Error(ctx, map[string]interface{}{
 				"err": err,
@@ -332,6 +347,7 @@ func (keycloak *KeycloakOAuthProvider) checkAllFederatedIdentities(ctx context.C
 	return true, nil
 }
 
+// JR HACK
 // checkFederatedIdentity returns true if the account is already linked to the identity provider
 func (keycloak *KeycloakOAuthProvider) checkFederatedIdentity(ctx context.Context, token string, brokerEndpoint string, provider string) (bool, error) {
 	req, err := http.NewRequest("GET", brokerEndpoint+"/"+provider+"/token", nil)
@@ -342,7 +358,18 @@ func (keycloak *KeycloakOAuthProvider) checkFederatedIdentity(ctx context.Contex
 		return false, er.NewInternalError("unable to crete http request " + err.Error())
 	}
 	req.Header.Add("Authorization", "Bearer "+token)
-	res, err := http.DefaultClient.Do(req)
+
+	// JR add config to disable
+	tr := &http.Transport{
+		TLSClientConfig: &tls.Config{InsecureSkipVerify: true},
+	}
+	var client *http.Client
+	if tr != nil {
+		client = &http.Client{Transport: tr}
+	} else {
+		client = http.DefaultClient
+	}
+	res, err := client.Do(req)
 	if err != nil {
 		log.Error(ctx, map[string]interface{}{
 			"provider": provider,
