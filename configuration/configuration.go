@@ -11,7 +11,6 @@ import (
 	"github.com/pkg/errors"
 	yaml "gopkg.in/yaml.v2"
 
-	"github.com/fabric8io/almighty-core/rest"
 	"github.com/goadesign/goa"
 	"github.com/spf13/viper"
 )
@@ -580,22 +579,23 @@ func (c *ConfigurationData) openIDConnectPath(suffix string) string {
 }
 
 func (c *ConfigurationData) getKeycloakURL(req *goa.RequestData, path string) (string, error) {
-	scheme := "http"
-	if req.URL != nil && req.URL.Scheme == "https" { // isHTTPS
-		scheme = "https"
-	}
-	xForwardProto := req.Header.Get("X-Forwarded-Proto")
-	if xForwardProto != "" {
-		scheme = xForwardProto
-	}
+	// scheme := "http"
+	// if req.URL != nil && req.URL.Scheme == "https" { // isHTTPS
+	// 	scheme = "https"
+	// }
+	// xForwardProto := req.Header.Get("X-Forwarded-Proto")
+	// if xForwardProto != "" {
+	// 	scheme = xForwardProto
+	// }
 
-	newHost, err := rest.ReplaceDomainPrefix(req.Host, c.GetKeycloakDomainPrefix())
-	if err != nil {
-		return "", err
-	}
-	newURL := fmt.Sprintf("%s://%s/%s", scheme, newHost, path)
+	// newHost, err := rest.ReplaceDomainPrefix(req.Host, c.GetKeycloakDomainPrefix())
+	// if err != nil {
+	// 	return "", err
+	// }
+	// newURL := fmt.Sprintf("%s://%s/%s", scheme, newHost, path)
 
-	return newURL, nil
+	// return newURL, nil
+	return "http://keycloak", nil
 }
 
 // GetCheStarterURL returns the URL for the Che Starter service used by codespaces to initiate code editing
