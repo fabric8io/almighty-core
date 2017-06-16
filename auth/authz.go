@@ -3,6 +3,7 @@ package auth
 import (
 	"bytes"
 	"context"
+	"crypto/tls"
 	"encoding/json"
 	"fmt"
 	"io"
@@ -11,6 +12,7 @@ import (
 	"strings"
 	"time"
 
+	"github.com/dgrijalva/jwt-go"
 	"github.com/fabric8io/almighty-core/errors"
 	"github.com/fabric8io/almighty-core/log"
 	"github.com/fabric8io/almighty-core/rest"
@@ -154,6 +156,23 @@ type entitlementResult struct {
 	Rpt string `json:"rpt"`
 }
 
+// TokenPayload represents an rpt token
+type TokenPayload struct {
+	jwt.StandardClaims
+	Authorization *AuthorizationPayload `json:"authorization"`
+}
+
+// AuthorizationPayload represents an authz payload in the rpt token
+type AuthorizationPayload struct {
+	Permissions []Permissions `json:"permissions"`
+}
+
+// Permissions represents a "permissions" in the AuthorizationPayload
+type Permissions struct {
+	ResourceSetName *string `json:"resource_set_name"`
+	ResourceSetID   *string `json:"resource_set_id"`
+}
+
 // VerifyResourceUser returns true if the user among the resource collaborators
 func VerifyResourceUser(ctx context.Context, token string, resourceName string, entitlementEndpoint string) (bool, error) {
 	resource := EntitlementResource{
@@ -190,7 +209,18 @@ func CreateResource(ctx context.Context, resource KeycloakResource, authzEndpoin
 	}
 	req.Header.Add("Content-Type", "application/json")
 	req.Header.Add("Authorization", "Bearer "+protectionAPIToken)
-	res, err := http.DefaultClient.Do(req)
+	// JR add config to disable
+	tr := &http.Transport{
+		TLSClientConfig: &tls.Config{InsecureSkipVerify: true},
+	}
+	var client *http.Client
+	if tr != nil {
+		client = &http.Client{Transport: tr}
+	} else {
+		client = http.DefaultClient
+	}
+	res, err := client.Do(req)
+
 	if err != nil {
 		log.Error(ctx, map[string]interface{}{
 			"resource": resource,
@@ -238,7 +268,19 @@ func GetClientID(ctx context.Context, clientsEndpoint string, publicClientID str
 		return "", errors.NewInternalError("unable to crete http request " + err.Error())
 	}
 	req.Header.Add("Authorization", "Bearer "+protectionAPIToken)
-	res, err := http.DefaultClient.Do(req)
+
+	// JR add config to disable
+	tr := &http.Transport{
+		TLSClientConfig: &tls.Config{InsecureSkipVerify: true},
+	}
+	var client *http.Client
+	if tr != nil {
+		client = &http.Client{Transport: tr}
+	} else {
+		client = http.DefaultClient
+	}
+	res, err := client.Do(req)
+	//res, err := http.DefaultClient.Do(req)
 	if err != nil {
 		log.Error(ctx, map[string]interface{}{
 			"public_client_id": publicClientID,
@@ -298,7 +340,18 @@ func CreatePolicy(ctx context.Context, clientsEndpoint string, clientID string, 
 	}
 	req.Header.Add("Content-Type", "application/json")
 	req.Header.Add("Authorization", "Bearer "+protectionAPIToken)
-	res, err := http.DefaultClient.Do(req)
+
+	// JR add config to disable
+	tr := &http.Transport{
+		TLSClientConfig: &tls.Config{InsecureSkipVerify: true},
+	}
+	var client *http.Client
+	if tr != nil {
+		client = &http.Client{Transport: tr}
+	} else {
+		client = http.DefaultClient
+	}
+	res, err := client.Do(req)
 	if err != nil {
 		log.Error(ctx, map[string]interface{}{
 			"client_id": clientID,
@@ -353,7 +406,18 @@ func CreatePermission(ctx context.Context, clientsEndpoint string, clientID stri
 	}
 	req.Header.Add("Content-Type", "application/json")
 	req.Header.Add("Authorization", "Bearer "+protectionAPIToken)
-	res, err := http.DefaultClient.Do(req)
+
+	// JR add config to disable
+	tr := &http.Transport{
+		TLSClientConfig: &tls.Config{InsecureSkipVerify: true},
+	}
+	var client *http.Client
+	if tr != nil {
+		client = &http.Client{Transport: tr}
+	} else {
+		client = http.DefaultClient
+	}
+	res, err := client.Do(req)
 	if err != nil {
 		log.Error(ctx, map[string]interface{}{
 			"client_id":  clientID,
@@ -406,7 +470,18 @@ func DeleteResource(ctx context.Context, kcResourceID string, authzEndpoint stri
 		return errors.NewInternalError("unable to crete http request " + err.Error())
 	}
 	req.Header.Add("Authorization", "Bearer "+protectionAPIToken)
-	res, err := http.DefaultClient.Do(req)
+
+	// JR add config to disable
+	tr := &http.Transport{
+		TLSClientConfig: &tls.Config{InsecureSkipVerify: true},
+	}
+	var client *http.Client
+	if tr != nil {
+		client = &http.Client{Transport: tr}
+	} else {
+		client = http.DefaultClient
+	}
+	res, err := client.Do(req)
 	if err != nil {
 		log.Error(ctx, map[string]interface{}{
 			"kc_resource_id": kcResourceID,
@@ -445,7 +520,18 @@ func DeletePolicy(ctx context.Context, clientsEndpoint string, clientID string, 
 		return errors.NewInternalError("unable to crete http request " + err.Error())
 	}
 	req.Header.Add("Authorization", "Bearer "+protectionAPIToken)
-	res, err := http.DefaultClient.Do(req)
+
+	// JR add config to disable
+	tr := &http.Transport{
+		TLSClientConfig: &tls.Config{InsecureSkipVerify: true},
+	}
+	var client *http.Client
+	if tr != nil {
+		client = &http.Client{Transport: tr}
+	} else {
+		client = http.DefaultClient
+	}
+	res, err := client.Do(req)
 	if err != nil {
 		log.Error(ctx, map[string]interface{}{
 			"policy_id": policyID,
@@ -484,7 +570,18 @@ func DeletePermission(ctx context.Context, clientsEndpoint string, clientID stri
 		return errors.NewInternalError("unable to crete http request " + err.Error())
 	}
 	req.Header.Add("Authorization", "Bearer "+protectionAPIToken)
-	res, err := http.DefaultClient.Do(req)
+
+	// JR add config to disable
+	tr := &http.Transport{
+		TLSClientConfig: &tls.Config{InsecureSkipVerify: true},
+	}
+	var client *http.Client
+	if tr != nil {
+		client = &http.Client{Transport: tr}
+	} else {
+		client = http.DefaultClient
+	}
+	res, err := client.Do(req)
 	if err != nil {
 		log.Error(ctx, map[string]interface{}{
 			"permission_id": permissionID,
@@ -523,7 +620,18 @@ func GetPolicy(ctx context.Context, clientsEndpoint string, clientID string, pol
 		return nil, errors.NewInternalError("unable to crete http request " + err.Error())
 	}
 	req.Header.Add("Authorization", "Bearer "+protectionAPIToken)
-	res, err := http.DefaultClient.Do(req)
+
+	// JR add config to disable
+	tr := &http.Transport{
+		TLSClientConfig: &tls.Config{InsecureSkipVerify: true},
+	}
+	var client *http.Client
+	if tr != nil {
+		client = &http.Client{Transport: tr}
+	} else {
+		client = http.DefaultClient
+	}
+	res, err := client.Do(req)
 	if err != nil {
 		log.Error(ctx, map[string]interface{}{
 			"client_id": clientID,
@@ -591,7 +699,18 @@ func UpdatePolicy(ctx context.Context, clientsEndpoint string, clientID string, 
 	}
 	req.Header.Add("Content-Type", "application/json")
 	req.Header.Add("Authorization", "Bearer "+protectionAPIToken)
-	res, err := http.DefaultClient.Do(req)
+
+	// JR add config to disable
+	tr := &http.Transport{
+		TLSClientConfig: &tls.Config{InsecureSkipVerify: true},
+	}
+	var client *http.Client
+	if tr != nil {
+		client = &http.Client{Transport: tr}
+	} else {
+		client = http.DefaultClient
+	}
+	res, err := client.Do(req)
 	if err != nil {
 		log.Error(ctx, map[string]interface{}{
 			"client_id": clientID,
@@ -643,7 +762,19 @@ func GetEntitlement(ctx context.Context, entitlementEndpoint string, entitlement
 	}
 
 	req.Header.Add("Authorization", "Bearer "+userAccesToken)
-	res, err := http.DefaultClient.Do(req)
+
+	// JR add config to disable
+	tr := &http.Transport{
+		TLSClientConfig: &tls.Config{InsecureSkipVerify: true},
+	}
+	var client *http.Client
+	if tr != nil {
+		client = &http.Client{Transport: tr}
+	} else {
+		client = http.DefaultClient
+	}
+	res, err := client.Do(req)
+
 	if err != nil {
 		log.Error(ctx, map[string]interface{}{
 			"entitlement_resource": entitlementResource,
@@ -690,7 +821,18 @@ func GetUserInfo(ctx context.Context, userInfoEndpoint string, userAccessToken s
 		return nil, errors.NewInternalError("unable to crete http request " + err.Error())
 	}
 	req.Header.Add("Authorization", "Bearer "+userAccessToken)
-	res, err := http.DefaultClient.Do(req)
+
+	// JR add config to disable
+	tr := &http.Transport{
+		TLSClientConfig: &tls.Config{InsecureSkipVerify: true},
+	}
+	var client *http.Client
+	if tr != nil {
+		client = &http.Client{Transport: tr}
+	} else {
+		client = http.DefaultClient
+	}
+	res, err := client.Do(req)
 	if err != nil {
 		log.Error(ctx, map[string]interface{}{
 			"err": err.Error(),
@@ -723,7 +865,18 @@ func ValidateKeycloakUser(ctx context.Context, adminEndpoint string, userID, pro
 		return false, errors.NewInternalError("unable to crete http request " + err.Error())
 	}
 	req.Header.Add("Authorization", "Bearer "+protectionAPIToken)
-	res, err := http.DefaultClient.Do(req)
+
+	// JR add config to disable
+	tr := &http.Transport{
+		TLSClientConfig: &tls.Config{InsecureSkipVerify: true},
+	}
+	var client *http.Client
+	if tr != nil {
+		client = &http.Client{Transport: tr}
+	} else {
+		client = http.DefaultClient
+	}
+	res, err := client.Do(req)
 	if err != nil {
 		log.Error(ctx, map[string]interface{}{
 			"user_id": userID,
@@ -747,7 +900,18 @@ func ValidateKeycloakUser(ctx context.Context, adminEndpoint string, userID, pro
 
 // GetProtectedAPIToken obtains a Protected API Token (PAT) from Keycloak
 func GetProtectedAPIToken(openidConnectTokenURL string, clientID string, clientSecret string) (string, error) {
-	client := &http.Client{Timeout: 10 * time.Second}
+	var tr *http.Transport
+
+	tr = &http.Transport{
+		TLSClientConfig: &tls.Config{InsecureSkipVerify: true},
+	}
+	var client *http.Client
+	if tr != nil {
+		client = &http.Client{Timeout: 10 * time.Second, Transport: tr}
+	} else {
+		client = http.DefaultClient
+	}
+
 	res, err := client.PostForm(openidConnectTokenURL, url.Values{
 		"client_id":     {clientID},
 		"client_secret": {clientSecret},
