@@ -5,8 +5,8 @@ import (
 
 	"time"
 
-	"github.com/almighty/almighty-core/errors"
-	"github.com/almighty/almighty-core/log"
+	"github.com/fabric8io/almighty-core/errors"
+	"github.com/fabric8io/almighty-core/log"
 	"github.com/jinzhu/gorm"
 	errs "github.com/pkg/errors"
 	uuid "github.com/satori/go.uuid"

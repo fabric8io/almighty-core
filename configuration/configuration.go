@@ -11,7 +11,7 @@ import (
 	"github.com/pkg/errors"
 	yaml "gopkg.in/yaml.v2"
 
-	"github.com/almighty/almighty-core/rest"
+	"github.com/fabric8io/almighty-core/rest"
 	"github.com/goadesign/goa"
 	"github.com/spf13/viper"
 )

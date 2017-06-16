@@ -6,12 +6,12 @@ import (
 	"testing"
 
 	"context"
-	"github.com/almighty/almighty-core/application"
+	"github.com/fabric8io/almighty-core/application"
 
-	"github.com/almighty/almighty-core/gormsupport/cleaner"
-	"github.com/almighty/almighty-core/gormtestsupport"
-	"github.com/almighty/almighty-core/resource"
-	"github.com/almighty/almighty-core/space"
+	"github.com/fabric8io/almighty-core/gormsupport/cleaner"
+	"github.com/fabric8io/almighty-core/gormtestsupport"
+	"github.com/fabric8io/almighty-core/resource"
+	"github.com/fabric8io/almighty-core/space"
 
 	"github.com/goadesign/goa"
 	"github.com/stretchr/testify/assert"

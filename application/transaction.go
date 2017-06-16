@@ -1,7 +1,7 @@
 package application
 
 import (
-	"github.com/almighty/almighty-core/log"
+	"github.com/fabric8io/almighty-core/log"
 
 	"github.com/pkg/errors"
 )

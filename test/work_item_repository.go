@@ -5,8 +5,8 @@ import (
 	"sync"
 
 	"context"
-	"github.com/almighty/almighty-core/criteria"
-	"github.com/almighty/almighty-core/workitem"
+	"github.com/fabric8io/almighty-core/criteria"
+	"github.com/fabric8io/almighty-core/workitem"
 	uuid "github.com/satori/go.uuid"
 )
 

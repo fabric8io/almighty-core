@@ -5,7 +5,7 @@ import (
 	"reflect"
 	"testing"
 
-	"github.com/almighty/almighty-core/resource"
+	"github.com/fabric8io/almighty-core/resource"
 	"github.com/stretchr/testify/assert"
 )
 

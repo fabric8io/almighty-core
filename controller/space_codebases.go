@@ -1,13 +1,13 @@
 package controller
 
 import (
-	"github.com/almighty/almighty-core/app"
-	"github.com/almighty/almighty-core/application"
-	"github.com/almighty/almighty-core/codebase"
-	"github.com/almighty/almighty-core/errors"
-	"github.com/almighty/almighty-core/jsonapi"
-	"github.com/almighty/almighty-core/login"
-	"github.com/almighty/almighty-core/rest"
+	"github.com/fabric8io/almighty-core/app"
+	"github.com/fabric8io/almighty-core/application"
+	"github.com/fabric8io/almighty-core/codebase"
+	"github.com/fabric8io/almighty-core/errors"
+	"github.com/fabric8io/almighty-core/jsonapi"
+	"github.com/fabric8io/almighty-core/login"
+	"github.com/fabric8io/almighty-core/rest"
 	"github.com/goadesign/goa"
 )
 

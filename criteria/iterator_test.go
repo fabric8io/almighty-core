@@ -4,7 +4,7 @@ import (
 	"reflect"
 	"testing"
 
-	"github.com/almighty/almighty-core/resource"
+	"github.com/fabric8io/almighty-core/resource"
 )
 
 func TestIterator(t *testing.T) {

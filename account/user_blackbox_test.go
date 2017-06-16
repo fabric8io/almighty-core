@@ -3,12 +3,12 @@ package account_test
 import (
 	"testing"
 
-	"github.com/almighty/almighty-core/account"
-	"github.com/almighty/almighty-core/gormsupport/cleaner"
-	"github.com/almighty/almighty-core/gormtestsupport"
-	"github.com/almighty/almighty-core/migration"
-	"github.com/almighty/almighty-core/resource"
-	"github.com/almighty/almighty-core/workitem"
+	"github.com/fabric8io/almighty-core/account"
+	"github.com/fabric8io/almighty-core/gormsupport/cleaner"
+	"github.com/fabric8io/almighty-core/gormtestsupport"
+	"github.com/fabric8io/almighty-core/migration"
+	"github.com/fabric8io/almighty-core/resource"
+	"github.com/fabric8io/almighty-core/workitem"
 
 	"context"
 	"github.com/satori/go.uuid"

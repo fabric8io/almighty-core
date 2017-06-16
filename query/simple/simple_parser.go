@@ -6,7 +6,7 @@ package query
 import (
 	"encoding/json"
 
-	. "github.com/almighty/almighty-core/criteria"
+	. "github.com/fabric8io/almighty-core/criteria"
 	"github.com/pkg/errors"
 )
 

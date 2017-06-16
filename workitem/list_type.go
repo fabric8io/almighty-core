@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"reflect"
 
-	"github.com/almighty/almighty-core/convert"
+	"github.com/fabric8io/almighty-core/convert"
 )
 
 //ListType describes a list of SimpleType values

@@ -5,20 +5,20 @@ import (
 	"path/filepath"
 	"testing"
 
-	"github.com/almighty/almighty-core/app/test"
-	"github.com/almighty/almighty-core/application"
-	"github.com/almighty/almighty-core/codebase"
+	"github.com/fabric8io/almighty-core/app/test"
+	"github.com/fabric8io/almighty-core/application"
+	"github.com/fabric8io/almighty-core/codebase"
 
-	"github.com/almighty/almighty-core/account"
-	"github.com/almighty/almighty-core/controller"
-	. "github.com/almighty/almighty-core/controller"
-	"github.com/almighty/almighty-core/gormapplication"
-	"github.com/almighty/almighty-core/gormsupport/cleaner"
-	"github.com/almighty/almighty-core/gormtestsupport"
-	"github.com/almighty/almighty-core/resource"
-	"github.com/almighty/almighty-core/space"
-	testsupport "github.com/almighty/almighty-core/test"
-	almtoken "github.com/almighty/almighty-core/token"
+	"github.com/fabric8io/almighty-core/account"
+	"github.com/fabric8io/almighty-core/controller"
+	. "github.com/fabric8io/almighty-core/controller"
+	"github.com/fabric8io/almighty-core/gormapplication"
+	"github.com/fabric8io/almighty-core/gormsupport/cleaner"
+	"github.com/fabric8io/almighty-core/gormtestsupport"
+	"github.com/fabric8io/almighty-core/resource"
+	"github.com/fabric8io/almighty-core/space"
+	testsupport "github.com/fabric8io/almighty-core/test"
+	almtoken "github.com/fabric8io/almighty-core/token"
 	"github.com/goadesign/goa"
 	uuid "github.com/satori/go.uuid"
 	"github.com/stretchr/testify/require"
@@ -96,7 +96,7 @@ func requireSpaceAndCodebase(t *testing.T, db *gormapplication.GormDB, ID, space
 			ID:                ID,
 			SpaceID:           spaceID,
 			Type:              "git",
-			URL:               "https://github.com/almighty/almighty-core.git",
+			URL:               "https://github.com/fabric8io/almighty-core.git",
 			StackID:           "golang-default",
 			LastUsedWorkspace: "my-last-used-workspace",
 		}

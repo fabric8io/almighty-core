@@ -6,14 +6,14 @@ import (
 
 	"context"
 
-	"github.com/almighty/almighty-core/account"
-	"github.com/almighty/almighty-core/comment"
-	"github.com/almighty/almighty-core/gormsupport/cleaner"
-	"github.com/almighty/almighty-core/gormtestsupport"
-	"github.com/almighty/almighty-core/migration"
-	"github.com/almighty/almighty-core/rendering"
-	"github.com/almighty/almighty-core/resource"
-	testsupport "github.com/almighty/almighty-core/test"
+	"github.com/fabric8io/almighty-core/account"
+	"github.com/fabric8io/almighty-core/comment"
+	"github.com/fabric8io/almighty-core/gormsupport/cleaner"
+	"github.com/fabric8io/almighty-core/gormtestsupport"
+	"github.com/fabric8io/almighty-core/migration"
+	"github.com/fabric8io/almighty-core/rendering"
+	"github.com/fabric8io/almighty-core/resource"
+	testsupport "github.com/fabric8io/almighty-core/test"
 
 	uuid "github.com/satori/go.uuid"
 	"github.com/stretchr/testify/assert"

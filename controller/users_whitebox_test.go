@@ -3,8 +3,8 @@ package controller
 import (
 	"testing"
 
-	"github.com/almighty/almighty-core/login"
-	"github.com/almighty/almighty-core/resource"
+	"github.com/fabric8io/almighty-core/login"
+	"github.com/fabric8io/almighty-core/resource"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 )

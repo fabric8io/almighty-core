@@ -3,9 +3,9 @@ package workitem_test
 import (
 	"testing"
 
-	"github.com/almighty/almighty-core/convert"
-	"github.com/almighty/almighty-core/resource"
-	. "github.com/almighty/almighty-core/workitem"
+	"github.com/fabric8io/almighty-core/convert"
+	"github.com/fabric8io/almighty-core/resource"
+	. "github.com/fabric8io/almighty-core/workitem"
 	"github.com/stretchr/testify/assert"
 )
 

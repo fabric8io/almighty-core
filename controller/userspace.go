@@ -3,10 +3,10 @@ package controller
 import (
 	"fmt"
 
-	"github.com/almighty/almighty-core/app"
-	"github.com/almighty/almighty-core/gormsupport"
-	"github.com/almighty/almighty-core/models"
-	"github.com/almighty/almighty-core/workitem"
+	"github.com/fabric8io/almighty-core/app"
+	"github.com/fabric8io/almighty-core/gormsupport"
+	"github.com/fabric8io/almighty-core/models"
+	"github.com/fabric8io/almighty-core/workitem"
 	"github.com/goadesign/goa"
 	"github.com/jinzhu/gorm"
 	uuid "github.com/satori/go.uuid"

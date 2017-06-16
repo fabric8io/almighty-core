@@ -8,15 +8,15 @@ import (
 
 	"strconv"
 
-	"github.com/almighty/almighty-core/gormsupport/cleaner"
-	"github.com/almighty/almighty-core/gormtestsupport"
-	"github.com/almighty/almighty-core/iteration"
-	"github.com/almighty/almighty-core/resource"
-	"github.com/almighty/almighty-core/space"
+	"github.com/fabric8io/almighty-core/gormsupport/cleaner"
+	"github.com/fabric8io/almighty-core/gormtestsupport"
+	"github.com/fabric8io/almighty-core/iteration"
+	"github.com/fabric8io/almighty-core/resource"
+	"github.com/fabric8io/almighty-core/space"
 
 	"reflect"
 
-	"github.com/almighty/almighty-core/errors"
+	"github.com/fabric8io/almighty-core/errors"
 	uuid "github.com/satori/go.uuid"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"

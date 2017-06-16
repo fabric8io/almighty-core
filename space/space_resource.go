@@ -1,10 +1,10 @@
 package space
 
 import (
-	"github.com/almighty/almighty-core/convert"
-	"github.com/almighty/almighty-core/errors"
-	"github.com/almighty/almighty-core/gormsupport"
-	"github.com/almighty/almighty-core/log"
+	"github.com/fabric8io/almighty-core/convert"
+	"github.com/fabric8io/almighty-core/errors"
+	"github.com/fabric8io/almighty-core/gormsupport"
+	"github.com/fabric8io/almighty-core/log"
 
 	"context"
 	"github.com/jinzhu/gorm"

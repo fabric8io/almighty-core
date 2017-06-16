@@ -3,7 +3,7 @@ package controller
 import (
 	"context"
 
-	"github.com/almighty/almighty-core/app"
+	"github.com/fabric8io/almighty-core/app"
 	"github.com/goadesign/goa"
 )
 

@@ -5,8 +5,8 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/almighty/almighty-core/rendering"
-	"github.com/almighty/almighty-core/workitem"
+	"github.com/fabric8io/almighty-core/rendering"
+	"github.com/fabric8io/almighty-core/workitem"
 	"github.com/pkg/errors"
 	uuid "github.com/satori/go.uuid"
 )

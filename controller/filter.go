@@ -3,8 +3,8 @@ package controller
 import (
 	"time"
 
-	"github.com/almighty/almighty-core/app"
-	"github.com/almighty/almighty-core/rest"
+	"github.com/fabric8io/almighty-core/app"
+	"github.com/fabric8io/almighty-core/rest"
 	"github.com/goadesign/goa"
 )
 

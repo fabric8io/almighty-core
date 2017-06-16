@@ -4,9 +4,9 @@ import (
 	"fmt"
 	"strconv"
 
-	"github.com/almighty/almighty-core/app"
-	"github.com/almighty/almighty-core/log"
-	"github.com/almighty/almighty-core/rest"
+	"github.com/fabric8io/almighty-core/app"
+	"github.com/fabric8io/almighty-core/log"
+	"github.com/fabric8io/almighty-core/rest"
 
 	"context"
 	"github.com/goadesign/goa"
