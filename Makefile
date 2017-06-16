@@ -12,6 +12,7 @@ SOURCE_DIR ?= .
 SOURCES := $(shell find $(SOURCE_DIR) -path $(SOURCE_DIR)/vendor -prune -o -name '*.go' -print)
 DESIGN_DIR=design
 DESIGNS := $(shell find $(SOURCE_DIR)/$(DESIGN_DIR) -path $(SOURCE_DIR)/vendor -prune -o -name '*.go' -print)
+VERSION ?= $(shell cat version/VERSION)
 
 # Find all required tools:
 GIT_BIN := $(shell command -v $(GIT_BIN_NAME) 2> /dev/null)
@@ -38,7 +39,7 @@ COMMIT := $(COMMIT)-dirty
 endif
 BUILD_TIME=`date -u '+%Y-%m-%dT%H:%M:%SZ'`
 
-PACKAGE_NAME := github.com/almighty/almighty-core
+PACKAGE_NAME := github.com/fabric8io/almighty-core
 
 # For the global "clean" target all targets in this variable will be executed
 CLEAN_TARGETS =
@@ -283,6 +284,14 @@ ifeq ($(OS),Windows_NT)
 else
 	@go build -o $(CHECK_GOPATH_BIN) .make/check_gopath.go
 endif
+
+.PHONY: release
+release: all
+	mkdir -p release
+	cp bin/alm release
+	cp bin/alm-cli release
+	gh-release checksums sha256
+	gh-release create fabric8io/$(PROJECT_NAME) $(VERSION) master v$(VERSION)
 
 # Keep this "clean" target here at the bottom
 .PHONY: clean
