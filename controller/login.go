@@ -2,6 +2,7 @@ package controller
 
 import (
 	"context"
+	"crypto/tls"
 	"time"
 
 	"golang.org/x/oauth2"
@@ -118,8 +119,12 @@ func (c *LoginController) Refresh(ctx *app.RefreshLoginContext) error {
 	if refreshToken == nil {
 		return jsonapi.JSONErrorResponse(ctx, errors.NewBadParameterError("refresh_token", nil).Expected("not nil"))
 	}
+	// JR add config to disable
+	tr := &http.Transport{
+		TLSClientConfig: &tls.Config{InsecureSkipVerify: true},
+	}
+	client := &http.Client{Transport: tr}
 
-	client := &http.Client{Timeout: 10 * time.Second}
 	endpoint, err := c.configuration.GetKeycloakEndpointToken(ctx.RequestData)
 	if err != nil {
 		log.Error(ctx, map[string]interface{}{

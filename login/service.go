@@ -4,6 +4,7 @@ import (
 	"crypto/md5"
 	"crypto/rsa"
 	"crypto/sha256"
+	"crypto/tls"
 	"encoding/base64"
 	"encoding/hex"
 	"encoding/json"
@@ -18,6 +19,7 @@ import (
 
 	"context"
 
+	jwt "github.com/dgrijalva/jwt-go"
 	"github.com/fabric8io/almighty-core/account"
 	"github.com/fabric8io/almighty-core/app"
 	"github.com/fabric8io/almighty-core/application"
@@ -29,7 +31,6 @@ import (
 	tokencontext "github.com/fabric8io/almighty-core/login/tokencontext"
 	"github.com/fabric8io/almighty-core/rest"
 	"github.com/fabric8io/almighty-core/token"
-	jwt "github.com/dgrijalva/jwt-go"
 	"github.com/goadesign/goa"
 	goajwt "github.com/goadesign/goa/middleware/security/jwt"
 	uuid "github.com/satori/go.uuid"
@@ -122,7 +123,21 @@ func (keycloak *KeycloakOAuthProvider) Perform(ctx *app.AuthorizeLoginContext, c
 			"known_referrer": knownReferrer,
 		}, "referrer found")
 
-		keycloakToken, err := config.Exchange(ctx, code)
+		tr := &http.Transport{
+			TLSClientConfig: &tls.Config{InsecureSkipVerify: true},
+		}
+
+		// JR hack
+
+		// sslcli := &http.Client{Transport: tr}
+		// ctx.Context = context.WithValue(ctx, oauth2.HTTPClient, sslcli)
+		// keycloakToken, err := config.Exchange(ctx, code)
+
+		sslcli := &http.Client{Transport: tr}
+		ctx2 := context.TODO()
+		ctx2 = context.WithValue(ctx2, oauth2.HTTPClient, sslcli)
+		keycloakToken, err := config.Exchange(ctx2, code)
+
 		if err != nil {
 			log.Error(ctx, map[string]interface{}{
 				"code": code,
@@ -342,7 +357,13 @@ func (keycloak *KeycloakOAuthProvider) checkFederatedIdentity(ctx context.Contex
 		return false, er.NewInternalError(errs.Wrap(err, "unable to crete http request"))
 	}
 	req.Header.Add("Authorization", "Bearer "+token)
-	res, err := http.DefaultClient.Do(req)
+
+	// JR add config to turn on
+	tr := &http.Transport{
+		TLSClientConfig: &tls.Config{InsecureSkipVerify: true},
+	}
+	client := &http.Client{Transport: tr}
+	res, err := client.Do(req)
 	if err != nil {
 		log.Error(ctx, map[string]interface{}{
 			"provider": provider,

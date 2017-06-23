@@ -3,7 +3,6 @@ package controller
 import (
 	"context"
 	"fmt"
-	"strings"
 
 	"github.com/fabric8io/almighty-core/app"
 	"github.com/fabric8io/almighty-core/application"
@@ -296,8 +295,11 @@ func ConvertCodebase(request *goa.RequestData, codebase *codebase.Codebase, addi
 func getNamespace(ctx context.Context) string {
 	token := goajwt.ContextJWT(ctx)
 	if claims, ok := token.Claims.(jwt.MapClaims); ok {
-		email := claims["preferred_username"].(string)
-		return strings.Replace(strings.Split(email, "@")[0], ".", "-", -1) + "-che"
+		email := claims["preferred_username"]
+		log.Info(ctx, map[string]interface{}{
+			"email": email,
+		}, "xxxxxxxxxxxxxxxxxxxxx")
 	}
-	return ""
+	//return ""
+	return "developer-che"
 }
